@@ -10,7 +10,9 @@ A new Flutter project.
 ## Getting Started
 
 This project is taken from Flutter Way channel in YouTube .
+<br>
 His github account is https://github.com/abuanwar072 and link of project is https://github.com/abuanwar072/Build-an-Animated-App-with-Rive-and-Flutter.
+<br>
 But this code from 0 to 100 was written by myself.
 
 
