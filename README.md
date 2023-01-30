@@ -1,16 +1,16 @@
 # animate_app
+<div align="center">
+  <a href="https://instagram.com/pouria.shirali">
+    <img src="https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=instagram&logoColor=white" width="100"/>
+  </a>
+</div>
 
 A new Flutter project.
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+This project is taken from Flutter Way channel in YouTube .
+His github account is https://github.com/abuanwar072 and link of project is https://github.com/abuanwar072/Build-an-Animated-App-with-Rive-and-Flutter.
+But this code from 0 to 100 was written by myself.
 
-A few resources to get you started if this is your first Flutter project:
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.

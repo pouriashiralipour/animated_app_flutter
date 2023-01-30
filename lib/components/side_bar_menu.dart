@@ -27,6 +27,7 @@ class _SideBarMenuState extends State<SideBarMenu> {
         color: const Color(0xFF17203A),
         child: SafeArea(
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               const CardInfo(
                 subTitle: "programmer",
@@ -42,26 +43,56 @@ class _SideBarMenuState extends State<SideBarMenu> {
                       .copyWith(color: Colors.white70),
                 ),
               ),
-              ...List.generate(
-                  sideBarTiles.length,
-                  (index) => SideMenuTile(
-                      menu: sideBarTiles[index],
-                      press: () {
-                        sideBarTiles[index].input!.change(true);
-                        Future.delayed(const Duration(seconds: 1), () {
-                          sideBarTiles[index].input!.change(false);
-                        });
-                      },
-                      riveonInit: (artboard) {
-                        StateMachineController controller =
-                            RiveUtils.getRiveContoroller(artboard,
-                                stateMachineName:
-                                    sideBarTiles[index].stateMachineName);
+              ...sideBarTiles.map((menu) => SideMenuTile(
+                    menu: menu,
+                    riveonInit: (artboard) {
+                      StateMachineController controller =
+                          RiveUtils.getRiveContoroller(artboard,
+                              stateMachineName: menu.stateMachineName);
 
-                        sideBarTiles[index].input =
-                            controller.findSMI("active") as SMIBool;
-                      },
-                      isActive: selectedMenu == sideBarTiles[index]))
+                      menu.input = controller.findSMI("active") as SMIBool;
+                    },
+                    press: () {
+                      menu.input!.change(true);
+                      Future.delayed(const Duration(seconds: 1), () {
+                        menu.input!.change(false);
+                      });
+                      setState(() {
+                        selectedMenu = menu;
+                      });
+                    },
+                    isActive: selectedMenu == menu,
+                  )),
+              Padding(
+                padding: const EdgeInsets.only(top: 32, bottom: 16, left: 24),
+                child: Text(
+                  "History".toUpperCase(),
+                  style: Theme.of(context)
+                      .textTheme
+                      .titleMedium!
+                      .copyWith(color: Colors.white70),
+                ),
+              ),
+              ...sideBarTiles2.map((menu) => SideMenuTile(
+                    menu: menu,
+                    riveonInit: (artboard) {
+                      StateMachineController controller =
+                          RiveUtils.getRiveContoroller(artboard,
+                              stateMachineName: menu.stateMachineName);
+
+                      menu.input = controller.findSMI("active") as SMIBool;
+                    },
+                    press: () {
+                      menu.input!.change(true);
+                      Future.delayed(const Duration(seconds: 1), () {
+                        menu.input!.change(false);
+                      });
+                      setState(() {
+                        selectedMenu = menu;
+                      });
+                    },
+                    isActive: selectedMenu == menu,
+                  )),
             ],
           ),
         ),
@@ -69,25 +100,3 @@ class _SideBarMenuState extends State<SideBarMenu> {
     );
   }
 }
-
-
-// ...sideBarTiles.map((menu) => SideMenuTile(
-//                     isActive: selectedMenu == menu,
-//                     menu: menu,
-//                     riveonInit: (artboard) {
-//                       StateMachineController controller =
-//                           RiveUtils.getRiveContoroller(artboard,
-//                               stateMachineName: menu.stateMachineName);
-
-//                       menu.input = controller.findSMI("active") as SMIBool;
-//                     },
-//                     press: () {
-//                       menu.input!.change(true);
-//                       Future.delayed(const Duration(seconds: 1), () {
-//                         menu.input!.change(true);
-//                       });
-//                       setState(() {
-//                         selectedMenu = menu;
-//                       });
-//                     },
-//                   ))

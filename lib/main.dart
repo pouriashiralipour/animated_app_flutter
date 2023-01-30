@@ -1,4 +1,5 @@
 import 'package:animate_app/components/side_bar_menu.dart';
+import 'package:animate_app/entry_point.dart';
 import 'package:animate_app/screens/onboding/onboding_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -29,7 +30,7 @@ class MyApp extends StatelessWidget {
           errorBorder: defaultInputBorder,
         ),
       ),
-      home: const SideBarMenu(),
+      home: const EntryPoint(),
     );
   }
 }

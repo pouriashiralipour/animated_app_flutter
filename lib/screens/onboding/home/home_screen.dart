@@ -15,8 +15,12 @@ class HomeScreen extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            const SizedBox(
+              height: 32,
+            ),
             Padding(
-              padding: const EdgeInsets.all(20),
+              padding: const EdgeInsets.only(
+                  top: 24, left: 20, right: 20, bottom: 20),
               child: Text(
                 "Courses",
                 style: Theme.of(context)
