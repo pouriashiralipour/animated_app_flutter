@@ -30,7 +30,7 @@ class MyApp extends StatelessWidget {
           errorBorder: defaultInputBorder,
         ),
       ),
-      home: const EntryPoint(),
+      home: const OnboardingScreen(),
     );
   }
 }
